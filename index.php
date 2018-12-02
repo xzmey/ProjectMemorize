@@ -11,4 +11,5 @@
  Вы не авторизованы! <br>
  <a href="login.php">Авторизация</a><br>
  <a href="signup.php">Регистрация</a>
-<?php endif; ?>
+<?php endif;
+?>

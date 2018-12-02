@@ -1,4 +1,4 @@
- <?php
+<?php
    require "db.php";
 
    $data = $_POST;
@@ -53,7 +53,7 @@
            echo'<div style="color: red;">'.array_shift($errors).'</div><hr>';
        }
    }
- ?>
+?>
 
  <form action="/signup.php" method="POST">
 
