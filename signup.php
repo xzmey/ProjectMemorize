@@ -1,6 +1,6 @@
 <?php
    require "db.php";
-
+    // Регистрация
    $data = $_POST;
    // Если была нажата кнопка регистрации
    if( isset( $data['do_signup']) )
@@ -55,7 +55,7 @@
    }
 ?>
 
- <form action="/signup.php" method="POST">
+ <form action="signup.php" method="POST">
 
    <p>
     <p><strong>Ваш логин</strong>:</p>
@@ -82,5 +82,13 @@
         <button type="submit" name="do_signup" >Зарегистрироваться</button>
     </p>
 
+
  </form>
 
+ <form action="index.php" method="POST">
+
+    <p>
+    <button type="submit" name="logged_user" >Назад</button>
+    </p>
+
+ </form>
