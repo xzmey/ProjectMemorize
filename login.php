@@ -32,7 +32,7 @@
    }
 ?>
 
- <form action="login.php" method="POST">
+ <form action="/login.php" method="POST">
 
      <p>
      <p><strong>Логин</strong>:</p>

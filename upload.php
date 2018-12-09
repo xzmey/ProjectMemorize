@@ -15,7 +15,8 @@ echo "Для проверки: <br/>";
     echo "Строка $key:". $val . "<br/>";
  }
 $data = $_POST;
- // если была нажата кнопка загрузить
+ // если существует в супермассиве data(POST) do upload , то обработает все данные и добавит
+ // файл в бд
 if ( isset($data['do_upload']) )
 {
 //здесь загружаем в бд
@@ -41,7 +42,7 @@ if ( isset($data['do_upload']) )
 }
 
 ?>
-<form action="upload.php" method="POST">
+<form action="/upload.php" method="POST">
 <p>
 <p><strong>Название текста</strong>:</p>
 <input type="text" name="name" value="<?php echo @$data['name']; ?>">

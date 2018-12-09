@@ -55,7 +55,7 @@
    }
 ?>
 
- <form action="signup.php" method="POST">
+ <form action="/signup.php" method="POST">
 
    <p>
     <p><strong>Ваш логин</strong>:</p>
