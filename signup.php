@@ -43,10 +43,12 @@
        {
            // все хорошо, регистрируем
            $user = R::dispense('users');
+
            $user->login = $data['login'];
            $user->email = $data['email'];
            $user->password = password_hash($data['password'],PASSWORD_DEFAULT);
            R::store($user);
+
            echo'<div style="color: green;">Вы успешно зарегистрированы!</div><hr>';
        }else
        {

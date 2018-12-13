@@ -1,5 +1,5 @@
 <?php
-   require "db.php";
+require "db.php";
    //Авторизация
    $data = $_POST;
    if ( isset($data['do_login']) )

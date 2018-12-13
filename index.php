@@ -7,7 +7,7 @@
  Привет, <?php echo $_SESSION['logged_user']->login; ?>!
  <hr>
  <a href="logout.php">Выйти</a><br>
- <a href="upload.php">Загрузить текст</a>
+ <a href="upload.html">Загрузить текст</a>
 
 <?php else : ?>
  Вы не авторизованы! <br>
