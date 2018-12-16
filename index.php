@@ -4,7 +4,7 @@
 
 <?php if ( isset($_SESSION['logged_user']) ) : ?>
  Авторизован!
- Привет, <?php echo $_SESSION['logged_user']->login; ?>!
+ Привет, <?php echo $_SESSION['logged_user']->login;?>!
  <hr>
  <a href="logout.php">Выйти</a><br>
  <a href="upload.html">Загрузить текст</a>

@@ -42,8 +42,8 @@ if ($_FILES['userfile']['type'] != 'text/plain')
     exit();
 }
 
-// Указываем, где нужно сохранить файл
-$upfile = 'uploads/' . $_FILES['userfile']['name'];
+// Указываем, где нужно сохранить файл, название будет разное каждый раз
+$upfile = 'uploads/'.mktime().'.'.pathinfo($_FILES['userfile']['name'])['extension'];
 
 // Проверяем, действительно ли файл был загружен по HTTP методом POST
 if (is_uploaded_file($_FILES['userfile']['tmp_name']))
@@ -61,7 +61,7 @@ else
 }
 
 echo '<p>Файл успешно загружен.</p>';
-echo 'Имя файла: ' . $_files['userfile']['name'] . '<br />';
+echo 'Имя файла: ' . $_FILES['userfile']['name'] . '<br />';
 
 $file_content = file_get_contents($upfile);
 
@@ -71,27 +71,17 @@ echo 'Содержимое загруженного файла: <br /><hr />';
 
 echo nl2br($file_content);
 
+$file = R::dispense('files');
+$file->user_id = $_SESSION['logged_user']->id;
+$file->name = mktime().'.'.pathinfo($_FILES['userfile']['name'])['extension'];
+$file->filename = $_FILES['userfile']['name'];
+
+R::store($file);
+
+echo'<div style="color: green;">Вы успешно загрузили текст!</div><hr>';
+
+
 ?>
 
-<form action="/upload.php" method="POST">
-
-    <p>
-        <button type="submit" name="do_upload" > Загрузить в бд</button>
-    </p>
-
-</form>
-
-<form action="/upload.php" method="POST">
-
-    <p>
-        <button type="submit" name="do_read" > Загрузить из бд текст</button>
-    </p>
-
-</form>
-
 <a href="upload.html">Загрузить другой файл</a>
-
-
-
-
 
