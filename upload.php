@@ -61,7 +61,7 @@ else
 }
 
 echo '<p>Файл успешно загружен.</p>';
-echo 'Имя файла: ' . $_FILES['userfile']['name'] . '<br />';
+echo 'Имя файла: ' . pathinfo($_FILES['userfile']['name'], PATHINFO_FILENAME ). '<br />';
 
 $file_content = file_get_contents($upfile);
 
@@ -85,3 +85,4 @@ echo'<div style="color: green;">Вы успешно загрузили текс�
 
 <a href="upload.html">Загрузить другой файл</a>
 
+<a href="showfiles.php">Показать мои тексты</a>

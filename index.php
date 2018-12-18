@@ -8,6 +8,7 @@
  <hr>
  <a href="logout.php">Выйти</a><br>
  <a href="upload.html">Загрузить текст</a>
+ <a href="showfiles.php">Показать мои тексты</a>
 
 <?php else : ?>
  Вы не авторизованы! <br>
