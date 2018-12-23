@@ -1,14 +1,33 @@
 <?php
 // Вывод содержимого загруженного файла
 require $_SERVER['DOCUMENT_ROOT'].'/application/db.php';
+session_start() ;
+unset($_SESSION['userfiles']);
+
 $dir = '/uploads';
+
 //Read
 $files = R::find('files',  "`user_id`= ?", array($_SESSION['logged_user']->id));
 
 foreach( $files as $file)
 {
+    //в массив записываю элементы с именами как у файлов ,а в значение элементов сам текст
     //pathinfo($path, PATHINFO_FILENAME) - убрал расширение .txt чтобы красивей смотрелось
-    echo 'Имя файла: ' . pathinfo($file->filename,PATHINFO_FILENAME).'<br />  ';
-    echo '<a href=  '.($dir."/".$file->name).'>Открыть текст</a>';
-    echo '<br /><hr />';
+    $name= pathinfo($file->filename,PATHINFO_FILENAME);
+    $names[]=pathinfo($file->filename,PATHINFO_FILENAME);
+    $_SESSION['userfiles'][$name]['content']= nl2br(file_get_contents($_SERVER['DOCUMENT_ROOT'].$dir."/".$file->name));
 }
+
+//link-ссылка на контент файла по имени
+//content должен передаться на другую странциу по ссылке
+foreach( $names as $link)
+{
+   $content = $_SESSION['userfiles'][$link]['content'];
+   ?>
+<form method="post" action="/application/modules/logic/logic.php">
+ <input type="hidden" name="text" value="<?php echo $content; ?>">
+ <button type="Submit">Открыть текст-><?echo $link ?></button>
+</form><?php
+}
+
+

@@ -1,6 +1,7 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/application/db.php';
 header("Content-Type: text/html; charset=utf-8");
+require $_SERVER['DOCUMENT_ROOT'].'/application/db.php';
+
 
 if($_FILES['userfile']['error']>0)
 {
