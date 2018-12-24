@@ -1,0 +1,14 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #36BBCE;
+	font-family: fantasy;
+	font-size: x-large;
+}
+
+button{
+    font-style: oblique;
+	border-color: #6D87D6;
+    background: #476BD6;
+    color: aliceblue;
+}

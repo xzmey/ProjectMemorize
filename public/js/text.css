@@ -1,0 +1,56 @@
+article.textArticle{
+	text-align: center;
+	color: aliceblue;
+}
+
+article.textArticle p{
+	display: none;
+}
+
+article p.onDeck{
+	display: block;	
+}
+
+span.onClick{
+	color: #062170;
+	background: #062170;
+	border-radius: 3px;
+	transition-timing-function: ease;
+}
+
+footer{
+
+}
+
+
+article button{
+	position: absolute;
+	border-radius: 100%;
+	right: 50px;
+	height: 40px;
+	width: 40px;
+}
+
+article button.down{
+	top: calc(90% - 5px);
+}
+
+article button.top{
+	top: 50px;
+}
+
+footer button{
+	position: absolute;
+	top: 90%;
+	height: 30px;
+	width: 200px;
+	border-radius: 30px;
+}
+
+footer button.next{
+	right: calc(50% - 210px);
+}
+
+footer button.openAll{
+	right: calc(50% + 10px);
+}
