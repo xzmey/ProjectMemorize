@@ -15,7 +15,7 @@ foreach( $files as $file)
     //pathinfo($path, PATHINFO_FILENAME) - убрал расширение .txt чтобы красивей смотрелось
     $name= pathinfo($file->filename,PATHINFO_FILENAME);
     $names[]=pathinfo($file->filename,PATHINFO_FILENAME);
-    $_SESSION['userfiles'][$name]['content']= nl2br(file_get_contents($_SERVER['DOCUMENT_ROOT'].$dir."/".$file->name));
+    $_SESSION['userfiles'][$name]['content']= (file_get_contents($_SERVER['DOCUMENT_ROOT'].$dir."/".$file->name));
 }
 
 //link-ссылка на контент файла по имени
