@@ -2,15 +2,15 @@
 require $_SERVER['DOCUMENT_ROOT'].'/application/db.php';
 session_start() ;
 
- $text=$_POST['text'];
+$text=$_POST['text'];
 
-$paragraph = $text;
-$contents = explode(' ', $paragraph);
-$i = 0;
-$span_content = '';
-foreach ($contents as $c){
-    $span_content .= "<span> $c </span> ";
-    $i++;
-}
-$result = $span_content;
-echo $result;
+$strings = explode('<br', $text);
+$length = count($strings);
+for ($i=0; $i < $length; $i++) {
+    $finString = trim($strings[$i], "/> ");
+    $words = explode(' ', $finString);
+    foreach ($words as $c){
+        echo "<span>$c </span> ";
+    };
+    echo "<br>";
+};
