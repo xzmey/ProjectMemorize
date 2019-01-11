@@ -1,6 +1,7 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'].'/application/db.php';
    //Авторизация
+   // в POST'е логин
    $data = $_POST;
    if ( isset($data['do_login']) )
    {
@@ -30,9 +31,10 @@ require $_SERVER['DOCUMENT_ROOT'].'/application/db.php';
            echo'<div style="color: red;">'.array_shift($errors).'</div><hr>';
        }
    }
+
 ?>
 
- <form action="/application/modules/user/login.php" method="POST">
+ <form method="post" action="/application/modules/user/login.php">
 
      <p>
      <p><strong>Логин</strong>:</p>
@@ -47,7 +49,5 @@ require $_SERVER['DOCUMENT_ROOT'].'/application/db.php';
      <p>
          <button type="submit" name="do_login" >Войти</button>
      </p>
-
  </form>
-
 

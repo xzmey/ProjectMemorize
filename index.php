@@ -1,8 +1,7 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'].'/application/db.php';
-?>
 
-<?php if ( isset($_SESSION['logged_user']) ) : ?>
+if ( isset($_SESSION['logged_user']) ) : ?>
  Авторизован!
  Привет, <?php echo $_SESSION['logged_user']->login;?>!
  <hr>

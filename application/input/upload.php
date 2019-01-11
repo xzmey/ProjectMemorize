@@ -10,27 +10,27 @@ if($_FILES['userfile']['error']>0)
     switch ($_FILES['userfile']['error'])
     {
         case 1:
-            echo 'Размер файла больше допустимого (upload_max_filesize в php.ini)';
+            echo '<div style="color: red;">Размер файла больше допустимого (upload_max_filesize в php.ini)';
             break;
 
         case 2:
-            echo 'Размер файла больше допустимого (upload_file_size в форме)';
+            echo '<div style="color: red;">Размер файла больше допустимого (upload_file_size в форме)';
             break;
 
         case 3:
-            echo 'Загружена только часть файла';
+            echo '<div style="color: red;">Загружена только часть файла';
             break;
 
         case 4:
-            echo 'Файл не был загружен)';
+            echo '<div style="color: red;">Файл не был загружен!';
+            break;
+
+        case 5:
+            echo '<div style="color: red;">Загрузка не возможна: не задан временный каталог)';
             break;
 
         case 6:
-            echo 'Загрузка не возможна: не задан временный каталог)';
-            break;
-
-        case 7:
-            echo 'Загрузка не выполнена: невозможна запись на диск)';
+            echo '<div style="color: red;">Загрузка не выполнена: невозможна запись на диск)';
             break;
     }
     exit();
@@ -51,7 +51,7 @@ if (is_uploaded_file($_FILES['userfile']['tmp_name']))
 {
     if (! move_uploaded_file($_FILES['userfile']['tmp_name'], $upfile))
     {
-         echo'Невозможно переместить файл в каталог назначения';
+         echo'<div style="color: red;">Невозможно переместить файл в каталог назначения';
          exit();
     }
 }
@@ -61,8 +61,7 @@ else
       exit();
 }
 
-echo '<p>Файл успешно загружен.</p>';
-echo 'Имя файла: ' . pathinfo($_FILES['userfile']['name'], PATHINFO_FILENAME ). '<br />';
+echo '<div style="color: black ;">Имя файла: ' . pathinfo($_FILES['userfile']['name'], PATHINFO_FILENAME ). '<br />';
 
 $file_content = file_get_contents($upfile);
 
